@@ -7,7 +7,7 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('dashboard') }}">
                     <x-application-mark class="block h-10 w-auto" />
                 </a>
             </div>
@@ -17,7 +17,7 @@
                 @guest
                 <div class="flex justify-self-center">
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Home') }}
                         </x-nav-link>
                     </div>
@@ -27,7 +27,7 @@
                 @auth
                 <div class="flex justify-self-center">
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Home') }}
                         </x-nav-link>
                     </div>
@@ -172,8 +172,8 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-2 pb-3 space-y-1">
             @guest
-                <x-responsive-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
-                    {{ __('home') }}
+                <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                    {{ __('Home') }}
                 </x-responsive-nav-link>
             @endguest
             <x-responsive-nav-link href="{{ route('manage-users') }}" :active="request()->routeIs('manage-users')">
