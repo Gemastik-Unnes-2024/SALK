@@ -14,22 +14,25 @@ use App\Livewire\ManageUsers;
 |
 */
 
-Route::get('/', function () {
-    if (auth()->check()) {
-        return redirect('/dashboard');
-    }
 
-    return redirect('/login');
-});
 
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
+    // 'auth:',
+    // config('jetstream.auth_session'),
+    // 'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
 
-    Route::get('/manage-users', ManageUsers::class)->name('manage-users');
+    Route::get('/home', function () {
+        return view('dashboard');
+    })->name('home');
+
+    Route::get('/', function () {
+        if (auth()->check()) {
+            return redirect('/home');
+        }
+
+        return redirect('/home');
+    });
 });
+
+Route::get('/manage-users', ManageUsers::class)->name('manage-users');
