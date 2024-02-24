@@ -22,7 +22,7 @@
 
                 @if ($user && $user->role == 1)
                     <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                        <x-nav-link href="{{ route('manage.users') }}" :active="request()->routeIs('manage-users')">
+                        <x-nav-link href="{{ route('manage-users') }}" :active="request()->routeIs('manage-users')">
                             {{ __('Users') }}
                         </x-nav-link>
                     </div>
@@ -84,6 +84,7 @@
 
                 <!-- Settings Dropdown -->
                 <div class="ms-3 relative">
+                    @auth
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
@@ -126,12 +127,18 @@
                                 @csrf
 
                                 <x-dropdown-link href="{{ route('logout') }}"
-                                         @click.prevent="$root.submit();">
+                                        @click.prevent="$root.submit();">
                                     {{ __('Log Out') }}
                                 </x-dropdown-link>
                             </form>
                         </x-slot>
                     </x-dropdown>
+                    {{-- If not logged in, then show login button --}}
+                    @else
+                        <a href="{{ route('login') }}" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                            {{ __('Log In') }}
+                        </a>
+                    @endauth
                 </div>
             </div>
 
@@ -152,6 +159,10 @@
         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link href="{{ route('manage-users') }}" :active="request()->routeIs('manage-users')">
+                {{ __('Users') }}
             </x-responsive-nav-link>
         </div>
 

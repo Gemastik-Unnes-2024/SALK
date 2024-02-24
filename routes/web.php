@@ -15,7 +15,11 @@ use App\Livewire\ManageUsers;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return redirect('/dashboard');
+    }
+
+    return redirect('/login');
 });
 
 Route::middleware([
@@ -26,6 +30,6 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-});
 
-Route::get('/manage-users', ManageUsers::class)->name('manage.users');
+    Route::get('/manage-users', ManageUsers::class)->name('manage-users');
+});
