@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -20,7 +21,7 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
+        <div class="bg-gray-100">
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -33,9 +34,9 @@
             @endif
 
             <!-- Page Content -->
-            <main>
+            <div class="bg-gray-100">
                 {{ $slot }}
-            </main>
+            </div>
         </div>
 
         @stack('modals')

@@ -19,17 +19,18 @@ Route::get('/', function () {
         return redirect('/dashboard');
     }
 
-    return redirect('/login');
+    return redirect('/dashboard');
 });
 
 Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
+    // 'auth:',
+    // config('jetstream.auth_session'),
+    // 'verified',
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/manage-users', ManageUsers::class)->name('manage-users');
 });
+
+    Route::get('/manage-users', ManageUsers::class)->name('manage-users');
