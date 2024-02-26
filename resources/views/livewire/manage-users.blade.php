@@ -5,6 +5,7 @@
         </h2>
     </x-slot>
 
+    {{-- Sort and Search --}}
     <div class="pb-6">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="flex flex-row items-center justify-between mt-8 mb-4">
@@ -22,6 +23,21 @@
                     </label>
                 </div>
             </div>
+
+            {{-- Promoted to admin session message --}}
+            @if (session()->has('message'))
+                <div wire:poll.1500ms="hideMessage" class="alert alert-success mb-4 text-white shadow-lg">
+                    {{ session('message') }}
+                </div>
+            @endif
+
+            {{-- Admin role revoked session message --}}
+            @if (session()->has('messageRevoked'))
+                <div wire:poll.1500ms="hideMessageRevoked" class="alert alert-error mb-4 text-white shadow-lg">
+                    {{ session('messageRevoked') }}
+                </div>
+            @endif
+
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 {{-- Table content --}}
                 <div class="overflow-x-auto">
@@ -44,9 +60,11 @@
                                 <td>{{ $user->role == 1 ? "Admin" : "User" }}</td>
                                 <td>
                                     @if ($user->role == 0)
-                                    <button class="btn bg-indigo-600 text-white" wire:click="promoteToAdmin({{ $user->id }})">Promote</button>
+                                        <button class="btn bg-indigo-600 text-white" onclick="scrollToTop();" wire:click="promoteToAdmin({{ $user->id }})">
+                                            Promote
+                                        </button>
                                     @elseif ($user->role == 1)
-                                    <button class="btn bg-red-500 text-white" wire:click="revokeToUser({{ $user->id }})">Revoke</button>
+                                        <button class="btn bg-red-500 text-white" onclick="scrollToTop();" wire:click="revokeToUser({{ $user->id }})">Revoke</button>
                                     @endif
                                 </td>
                             </tr>
@@ -62,3 +80,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+</script>
