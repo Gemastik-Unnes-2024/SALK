@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.bg-gradient-white-blue {
+    /* Linear gradient dari atas ke bawah */
+    background-image: linear-gradient(to bottom, #ffffff, #007bff);
+}
+
+.bg-gradient-white-grey {
+    background-image: linear-gradient(to bottom, #ffffff, #f3f4f69a);
+}
+
 [x-cloak] {
     display: none;
 }

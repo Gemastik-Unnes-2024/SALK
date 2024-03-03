@@ -22,6 +22,22 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
+Route::get('/tentang-kami', function () {
+    return view('tentang-kami');
+})->name('tentang-kami');
+
+Route::get('/fitur', function () {
+    return view('fitur');
+})->name('fitur');
+
+Route::get('/layanan', function () {
+    return view('layanan');
+})->name('layanan');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq');
+
 Route::middleware([
     // 'auth:',
     // config('jetstream.auth_session'),

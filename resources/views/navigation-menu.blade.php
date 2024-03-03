@@ -7,8 +7,8 @@
         <div class="flex justify-between h-16">
             <!-- Logo -->
             <div class="shrink-0 flex items-center">
-                <a href="{{ route('dashboard') }}">
-                    <x-application-mark class="block h-10 w-auto" />
+                <a href="{{ route('faq') }}">
+                    <img src="{{ asset('img/logo.png') }}" alt="Logo">
                 </a>
             </div>
             <div class="flex">
@@ -22,6 +22,34 @@
                         </x-nav-link>
                     </div>
                 </div>
+                <div class="flex justify-self-center">
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('tentang-kami') }}" :active="request()->is('tentang-kami')">
+                            {{ __('Tentang Kami') }}
+                        </x-nav-link>
+                    </div>
+                </div>
+                <div class="flex justify-self-center">
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('fitur') }}" :active="request()->is('fitur')">
+                            {{ __('Fitur') }}
+                        </x-nav-link>
+                    </div>
+                </div>
+                <div class="flex justify-self-center">
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('layanan') }}" :active="request()->is('layanan')">
+                            {{ __('Layanan') }}
+                        </x-nav-link>
+                    </div>
+                </div>
+                <div class="flex justify-self-center">
+                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('faq') }}" :active="request()->is('faq')">
+                            {{ __('FAQ') }}
+                        </x-nav-link>
+                    </div>
+                </div>
                 @endguest
 
                 @auth
@@ -30,6 +58,34 @@
                         <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                             {{ __('Home') }}
                         </x-nav-link>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('tentang-kami') }}" :active="request()->is('tentang-kami')">
+                                {{ __('Tentang Kami') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('fitur') }}" :active="request()->is('fitur')">
+                                {{ __('Fitur') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('layanan') }}" :active="request()->is('layanan')">
+                                {{ __('Layanan') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('faq') }}" :active="request()->is('faq')">
+                                {{ __('FAQ') }}
+                            </x-nav-link>
+                        </div>
                     </div>
                     @if ($user && $user->role == 1)
                         <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
@@ -44,6 +100,39 @@
             <div class="hidden justify-self-end sm:flex sm:items-center sm:ms-6">
                 <!-- Teams Dropdown --> <!-- pojokin kanan -->
                 @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                        <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                            {{ __('Home') }}
+                        </x-nav-link>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('tentang-kami') }}" :active="request()->is('tentang-kami')">
+                                {{ __('Tentang Kami') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('fitur') }}" :active="request()->is('fitur')">
+                                {{ __('Fitur') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('layanan') }}" :active="request()->is('layanan')">
+                                {{ __('Layanan') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
+                    <div class="flex justify-self-center">
+                        <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                            <x-nav-link href="{{ route('faq') }}" :active="request()->is('faq')">
+                                {{ __('FAQ') }}
+                            </x-nav-link>
+                        </div>
+                    </div>
                     <div class="ms-3 relative">
                         <x-dropdown align="right" width="60">
                             <x-slot name="trigger">
@@ -175,7 +264,34 @@
                 <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('tentang-kami') }}" :active="request()->routeIs('tentang-kami')">
+                    {{ __('Tentang Kami') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('fitur') }}" :active="request()->routeIs('fitur')">
+                    {{ __('Fitur') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('layanan') }}" :active="request()->routeIs('layanan')">
+                    {{ __('Layanan') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link href="{{ route('faq') }}" :active="request()->routeIs('faq')">
+                    {{ __('FAQ') }}
+                </x-responsive-nav-link>
             @endguest
+            <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                {{ __('Home') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('tentang-kami') }}" :active="request()->routeIs('tentang-kami')">
+                {{ __('Tentang Kami') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('fitur') }}" :active="request()->routeIs('fitur')">
+                {{ __('Fitur') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('layanan') }}" :active="request()->routeIs('layanan')">
+                {{ __('Layanan') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link href="{{ route('faq') }}" :active="request()->routeIs('faq')">
+                {{ __('FAQ') }}
+            </x-responsive-nav-link>
             <x-responsive-nav-link href="{{ route('manage-users') }}" :active="request()->routeIs('manage-users')">
                 {{ __('Users') }}
             </x-responsive-nav-link>
