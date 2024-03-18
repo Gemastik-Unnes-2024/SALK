@@ -2,13 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    font-family: "Raleway", sans-serif;
+}
+
 .bg-gradient-white-blue {
     /* Linear gradient dari atas ke bawah */
-    background-image: linear-gradient(to bottom, #ffffff, #007bff);
+    background-image: linear-gradient(to bottom, #ffffff, #3895f9);
 }
 
 .bg-gradient-white-grey {
     background-image: linear-gradient(to bottom, #ffffff, #f3f4f69a);
+}
+
+.bg-dashboard {
+    background-size: cover;
+}
+
+.raleway {
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 [x-cloak] {

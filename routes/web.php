@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\GoogleLoginController;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use App\Livewire\ManageUsers;
 
 /*
@@ -37,6 +39,11 @@ Route::get('/layanan', function () {
 Route::get('/faq', function () {
     return view('faq');
 })->name('faq');
+
+// Socialite
+
+Route::get('/auth/redirect', [GoogleLoginController::class, 'redirectToGoogle']);
+Route::get('/auth/google/callback', [GoogleLoginController::class, 'handleGoogleCallback']);
 
 Route::middleware([
     // 'auth:',
